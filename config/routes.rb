@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   
   get 'about', to: 'pages#about'
+  
+  resources :articles # a new article path, path to CRUD. Test with `rake routes`
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
