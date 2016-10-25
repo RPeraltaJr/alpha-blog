@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  # make sure the methods call 'set_article' before anything
+  before_action :set_article, only: [:edit, :update, :show, :destroy]
   
   def index
     @articles = Article.all # get all articles from the database
@@ -45,6 +47,9 @@ class ArticlesController < ApplicationController
   end
   
   private 
+    def set_article # create a method for lines of code that are repeatedly used
+      @article = Article.find(params[:id])
+    end
     def article_params
       params.require(:article).permit(:title, :description)  # permit the values of title and description
     end
