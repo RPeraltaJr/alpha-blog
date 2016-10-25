@@ -1,0 +1,27 @@
+<!-- Display any errors -->
+<% if @article.errors.any? %>
+  <h2>The following errors prevented the article from being edited</h2>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- Form Helpers: http://guides.rubyonrails.org/form_helpers.html -->
+<!-- *Edit: Since this is a Model backed form, Rails will prefill data to the form from the database -->
+<%= form_for @article do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p><%= link_to "Back to articles listing", articles_path %></p>

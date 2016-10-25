@@ -8,12 +8,8 @@
 </head>
 <body>
   
-  <!-- Do Block -->
-  <% flash.each do |name, msg| %>
-    <ul>
-      <li><%= msg %></li>
-    </ul>
-  <% end %>
+<!-- Include partial -->
+<%= render 'layouts/messages' %>
   
 <%= yield %>
 
