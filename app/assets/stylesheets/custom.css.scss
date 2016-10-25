@@ -1,3 +1,151 @@
+// Variables
+$navbar-default-bg: #2C3136;
+$primary: #ED4545; // red
+$primary-dark: #d13e3e; // red dark
+
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+// General
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+a, 
+.btn {
+  transition: all 300ms ease;
+}
+
+.btn,
+input,
+textarea,
+.form-control {
+  border-radius: 0;
+}
+
+// Font
+.text-uppercase { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+.text-lowercase { text-transform: lowercase !important; }
+
+// Buttons
+.btn-primary {
+  background: $primary;
+  border-color: $primary;
+  color: white;
+  &:hover,
+  &:active,
+  &:target,
+  &:focus {
+    background: $primary-dark;
+    border-color: $primary-dark;
+    color: white;
+  }
+}
+
+// Container
+.container-fluid {
+  padding: 0 40px;
+}
+
+@media (max-width: 991px) {
+  .container-fluid {
+    padding: 0 20px;
+  }
+} 
+
+// Navbar
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+  border: none;
+  .container-fluid {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .navbar-header {
+      #logo {
+        b {
+          font-weight: 700;
+          color: white;
+        }
+        float: left;
+        font-size: 1.25em;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $primary;
+      }
+    }
+    .navbar-collapse {
+      .navbar-nav > li > a {
+        color: white;
+        background: none !important;
+        &:hover {
+          color: $primary;
+        }
+      }
+      form {
+        .btn {
+          padding: 6.25px 12px;
+        }
+      }
+    }
+  }
+}
+
+// Home
+section.home {
+  display: flex;
+  position: absolute;
+  height: 85%;
+  width: 100%;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+    asset-url('work-station.jpg');
+  background-repeat: no-repeat;
+  background-position: center center; 
+  background-size: cover;
+  .container-fluid {
+    display: flex;
+    .main {
+      margin: auto;
+      h1 {
+        color: white;
+        font-size: 4.5em;
+        margin: 0 0 15px;
+      } 
+    }
+  }
+}
+
+// Footer
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: $navbar-default-bg;
+  color: #888;
+  display: flex;
+  .container-fluid {
+    display: flex;
+    width: 100%;
+    .item {
+      flex: 1 50%;
+      margin: auto;
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

@@ -8,10 +8,16 @@
 </head>
 <body>
   
-<!-- Include partial -->
-<%= render 'layouts/messages' %>
+<!-- Include partial for navigation -->
+<%= render 'layouts/navigation' %>
   
+<!-- Include partial for messages -->
+<%= render 'layouts/messages' %>
+
 <%= yield %>
+
+<!-- Include partial for footer -->
+<%= render 'layouts/footer' %>
 
 </body>
 </html>
