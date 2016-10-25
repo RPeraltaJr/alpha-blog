@@ -1,8 +1,8 @@
-<h1>Create an article</h1>
+<h1>Edit existing article</h1>
 
 <!-- Display any errors -->
 <% if @article.errors.any? %>
-  <h2>The following errors prevented the article from getting created</h2>
+  <h2>The following errors prevented the article from being edited</h2>
   <ul>
     <% @article.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
@@ -11,6 +11,7 @@
 <% end %>
 
 <!-- Form Helpers: http://guides.rubyonrails.org/form_helpers.html -->
+<!-- Since this is a Model backed form, Rails will prefill data to the form from the database -->
 <%= form_for @article do |f| %>
   <p>
     <%= f.label :title %><br>
