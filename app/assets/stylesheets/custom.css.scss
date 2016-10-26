@@ -1,4 +1,7 @@
+// -------------------------------------
 // Variables
+// -------------------------------------
+
 $navbar-default-bg: #2C3136;
 $primary: #ED4545; // red
 $primary-dark: #cc3d3d; // red dark
@@ -8,7 +11,10 @@ $grey: #888;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// -------------------------------------
 // General
+// -------------------------------------
+
 html {
   position: relative;
   min-height: 100%;
@@ -31,12 +37,19 @@ textarea,
   border-radius: 0;
 }
 
+// -------------------------------------
 // Font
+// -------------------------------------
+
 .text-uppercase { text-transform: uppercase !important; }
 .text-capitalize { text-transform: capitalize !important; }
 .text-lowercase { text-transform: lowercase !important; }
+.text-primary { color: $primary; }
 
+// -------------------------------------
 // Buttons
+// -------------------------------------
+
 .btn-primary {
   background: $primary;
   border-color: $primary;
@@ -51,7 +64,10 @@ textarea,
   }
 }
 
+// -------------------------------------
 // Container
+// -------------------------------------
+
 .container-fluid {
   padding: 0 40px;
 }
@@ -62,7 +78,10 @@ textarea,
   }
 } 
 
+// -------------------------------------
 // Navbar
+// -------------------------------------
+
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
@@ -70,7 +89,7 @@ textarea,
   .container-fluid {
     padding-top: 5px;
     padding-bottom: 5px;
-    .navbar-header {
+    .navbar-header { // Navbar Header
       #logo {
         b {
           font-weight: 700;
@@ -83,7 +102,7 @@ textarea,
         color: $primary;
       }
     }
-    .navbar-collapse {
+    .navbar-collapse { // Navbar Collapse
       .navbar-nav > li > a {
         color: white;
         background: none !important;
@@ -100,7 +119,10 @@ textarea,
   }
 }
 
+// -------------------------------------
 // Home
+// -------------------------------------
+
 section.home {
   display: flex;
   position: absolute;
@@ -112,7 +134,7 @@ section.home {
   background-repeat: no-repeat;
   background-position: center center; 
   background-size: cover;
-  .container-fluid {
+  .container-fluid { // Container Fluid
     display: flex;
     .main {
       margin: auto;
@@ -125,17 +147,20 @@ section.home {
   }
 }
 
+// -------------------------------------
 // Section
+// -------------------------------------
+
 section.articles {
-  &.list {
+  &.list { // List
     h2 > a {
-      color: $primary;
+      color: $navbar-default-bg;
     }
     h2 > a:hover,
     h2 > a:focus,
     h2 > a:active,
     h2 > a:target {
-      color: $primary-dark;
+      color: $primary;
     }
     .badge {
       background: $grey;
@@ -143,33 +168,37 @@ section.articles {
     }
     .article-actions {
       .btn {
-        width: 70px;
+        min-width: 70px;
       }
     }
   }
-  &.show {
-    .well {
-      padding: 30px 20px;
-      box-shadow: none;
-      border: none;
-      border-radius: 0;
-      h4 {
-        margin: 0 0 10px;
-      }
-      .description {
-        padding: 20px 0;
-      }
+  &.show { // Show
+    h2 {
+      color: $navbar-default-bg;
     }
-    .article-actions {
-      border-top: 1px solid #eaeaea;
-      padding-top: 15px;
+    .more-info {
+      margin-top: 20px;
+      .badge {
+        background: $grey;
+        font-weight: 500;
+      }
+      .article-actions {
+        .btn {
+          width: 100px;
+        }
+      }
     }
   }
   .container {
     padding: 50px 40px;
     h1.title {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      font-size: 1.5em;
+      text-transform: uppercase;
+      color: #aaa;
+      font-weight: bold;
+      letter-spacing: 3px;
     }
     a {
       color: $grey;
@@ -193,7 +222,10 @@ section.articles {
   }
 }
 
+// -------------------------------------
 // Flash Message
+// -------------------------------------
+
 .flash-msg {
   .container-fluid {
     .alert {
@@ -217,7 +249,10 @@ section.articles {
   }
 }
 
+// -------------------------------------
 // Footer
+// -------------------------------------
+
 .footer {
   position: absolute;
   bottom: 0;

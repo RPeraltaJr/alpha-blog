@@ -1,24 +1,24 @@
 <section class="show articles">
   <div class="container">
     <div class="col-md-12">
-
-      <h1 class="title"><%= @article.title %></h1>
-      
-      <div class="well col-md-8 col-md-offset-2 text-center">
-        <h4><strong>Description:</strong></h4>
-
-        <div class="description">
-          <!-- simple_format() method will display returns/breaks in the same way that was edited -->
-          <%= simple_format(@article.description) %>
-        </div>
-        
-        <div class="article-actions">
-          <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-info" %>
-          <%= link_to "Delete this article",article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
+      <h1 class="title text-primary">View Article</h1>
+    <div>
+    
+    <div class="col-md-10 col-md-offset-1">
+      <h2> <%= @article.title %> </h2>
+      <!-- simple_format() method will display returns/breaks in the same way that was edited -->
+      <%= simple_format(@article.description) %>
+      <div class="more-info">
+        <span class="badge">Posted on <%= @article.created_at.strftime("%m/%d/%Y") %></span>
+        <span class="badge">Updated on <%= @article.updated_at.strftime("%m/%d/%Y") %></span>
+        <div class="pull-right article-actions">
+          <%= link_to "Edit", edit_article_path(@article), class: "btn btn-xs btn-info" %>
+          <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
           <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
-        </div>
+        </div>         
       </div>
+      <hr>
+    </div>
       
-    </div> <!-- /.col-md-12 -->
   </div> <!-- /.container -->
 </section>
