@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :articles # since user is the One side, in the One to Many Associations
+  before_save { self.email = email.downcase }
+  before_save { self.username = username.capitalize}
   
   # ensure username is present
   validates :username, 

@@ -19,5 +19,8 @@
 <!-- Include partial for footer -->
 <%= render 'layouts/footer' %>
 
+<!-- Disply Debug Params if Rails is in development -->
+<%= debug(params) if Rails.env.development? %>
+
 </body>
 </html>

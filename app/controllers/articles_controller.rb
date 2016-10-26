@@ -15,8 +15,9 @@ class ArticlesController < ApplicationController
   end
   
   def create
+    debugger
     @article = Article.new(article_params) # pass in a variable
-    
+    @article.user = User.first
     if @article.save
       flash[:success] = "Article was successfully created" # Flash message
       redirect_to article_path(@article) # according to `rake routes` which says the Prefix is 'article'
