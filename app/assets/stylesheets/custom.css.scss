@@ -127,6 +127,26 @@ section.home {
 
 // Section
 section.articles {
+  &.list {
+    h2 > a {
+      color: $primary;
+    }
+    h2 > a:hover,
+    h2 > a:focus,
+    h2 > a:active,
+    h2 > a:target {
+      color: $primary-dark;
+    }
+    .badge {
+      background: $grey;
+      font-weight: 500;
+    }
+    .article-actions {
+      .btn {
+        width: 70px;
+      }
+    }
+  }
   &.show {
     .well {
       padding: 30px 20px;
@@ -141,13 +161,6 @@ section.articles {
       }
     }
     .article-actions {
-      a,
-      a:hover,
-      a:target,
-      a:active,
-      a:focus {
-        color: white;
-      }
       border-top: 1px solid #eaeaea;
       padding-top: 15px;
     }
@@ -166,6 +179,15 @@ section.articles {
       &:active,
       &:target {
         color: $primary;
+      }
+    }
+    .article-actions {
+      a,
+      a:hover,
+      a:target,
+      a:active,
+      a:focus {
+        color: white;
       }
     }
   }

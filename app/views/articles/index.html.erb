@@ -1,32 +1,32 @@
 <section class="list articles">
   <div class="container">
     <div class="col-md-12">
-
       <h1 class="title">Listing all articles</h1>
+    <div>
+    <br>
+    
+    <% @articles.each do |article| %>
+    
+      <div class="col-md-10 col-md-offset-1">
+        <h2> <%= link_to article.title, article_path(article) %> </h2> <!-- Title becomes a link -->
+        <p> <%= truncate(article.description, length: 100) %> </p> <!-- truncate method will shorten the description length -->
+        <div>
+          <span class="badge">Posted on <%= article.created_at.strftime("%m/%d/%Y") %></span>
+          <div class="pull-right article-actions">
+            <%= link_to "Edit", edit_article_path(article), class: "btn btn-xs btn-info" %>
+            <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
+          </div>         
+        </div>
+        <hr>
+      </div>
       
-      <!-- Use `rake routes` to find Prefixes for URL -->
-      <p><%= link_to "Create new article", new_article_path %></p>
-      
-      <table>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-        </tr>
-        
-        <% @articles.each do |article| %>
-        
-          <tr>
-            <td><%= article.title %></td>
-            <td><%= article.description %></td>
-            <td><%= link_to 'Edit', edit_article_path(article) %></td> <!-- article OR article.id both work -->
-            <td><%= link_to 'Show', article_path(article) %></td>
-            <td><%= link_to 'Delete', article_path(article), method: :delete, data: { confirm: "Are you sure?" } %></td>
-          </tr>
+      <div class="article-actions">
           
-        <% end %>
-        
-      </table>
+          
+          
+        </div>
       
-    </div> <!-- /.col-md-12 -->
+    <% end %>
+          
   </div> <!-- /.container -->
 </section>
