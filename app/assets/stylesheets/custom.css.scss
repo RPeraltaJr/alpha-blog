@@ -1,7 +1,7 @@
 // Variables
 $navbar-default-bg: #2C3136;
 $primary: #ED4545; // red
-$primary-dark: #b23737; // red dark
+$primary-dark: #cc3d3d; // red dark
 $grey: #888;
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
@@ -127,6 +127,31 @@ section.home {
 
 // Section
 section.articles {
+  &.show {
+    .well {
+      padding: 30px 20px;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      h4 {
+        margin: 0 0 10px;
+      }
+      .description {
+        padding: 20px 0;
+      }
+    }
+    .article-actions {
+      a,
+      a:hover,
+      a:target,
+      a:active,
+      a:focus {
+        color: white;
+      }
+      border-top: 1px solid #eaeaea;
+      padding-top: 15px;
+    }
+  }
   .container {
     padding: 50px 40px;
     h1.title {

@@ -6,6 +6,7 @@
         <% flash.each do |name, msg| %>
           <div class='alert alert-<%="#{name}" %>'>
             <a href="#" class="close" data-dismiss="alert">&#215;</a>
+            <!-- create a div, fill it with message and give it an id of flash_type (type can be error etc) if msg is a string -->
             <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
           </div>
         <% end %>
