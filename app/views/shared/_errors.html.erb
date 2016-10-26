@@ -1,0 +1,25 @@
+<!-- Display if any errors -->
+<% if obj.errors.any? %> <!-- Replaced @article for 'obj' because this will be a shared partial (incase we use it for articles or users, etc.) -->
+
+  <div class="row errors-any">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h2 class="panel-title"> 
+            <!-- Pluralize method will determine if one or more errors and will pluralize the word 'error' if needed -->
+            <%= pluralize(obj.errors.count, "error") %>
+            prohibited this article from being saved:
+          </h2>
+        </div> <!-- /.panel-heading -->
+        <div class="panel-body">
+          <ul>
+            <% obj.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div> <!-- /.panel-body -->
+      </div> <!-- /.panel .panel-danger -->
+    </div> <!-- /.col-md-8 -->
+  </div> <!-- /.row -->
+
+<% end %>

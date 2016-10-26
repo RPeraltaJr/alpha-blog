@@ -104,6 +104,7 @@ textarea,
 section.home {
   display: flex;
   position: absolute;
+  margin-top: -5px;
   height: 85%;
   width: 100%;
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
@@ -126,20 +127,46 @@ section.home {
 
 // Section
 section.articles {
-  margin-top: 50px;
-  h1.title {
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  a {
-    color: $grey;
-    text-decoration: none;
-    &:hover,
-    &:focus,
-    &:active,
-    &:target {
-      color: $primary;
+  .container {
+    padding: 50px 40px;
+    h1.title {
+      text-align: center;
+      margin-bottom: 25px;
     }
+    a {
+      color: $grey;
+      text-decoration: none;
+      &:hover,
+      &:focus,
+      &:active,
+      &:target {
+        color: $primary;
+      }
+    }
+  }
+}
+
+// Flash Message
+.flash-msg {
+  .container-fluid {
+    .alert {
+      margin: 40px 0 20px;
+    }
+  }  
+}
+
+// Errors Any?
+.errors-any {
+  .panel { border-radius: 0; }
+  .panel-danger > .panel-heading { border: none; }
+  .panel-danger { 
+    border-color: #f2dede;
+    padding: 15px;
+    background: #f2dede;
+  };
+  .panel-body { 
+    background: #f2dede; 
+    padding: 0 15px;
   }
 }
 
