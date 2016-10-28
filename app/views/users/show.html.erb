@@ -1,0 +1,26 @@
+<section class="profile users">
+  <div class="container">
+    <div class="col-md-12">
+      <h1 class="title">Profile Page</h1>
+    </div>
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+				<!-- Gravatar -->
+				<div class="profile-userpic">
+				  <%= gravatar_for @user %>
+				</div>
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<%= @user.username %>
+					</div>
+					<a href="mailto:<%= @user.email %>"><%= @user.email %></a>
+				</div>
+			</div>
+    </div>
+    <div class="col-md-9">
+      <h2> <%= @user.username %>'s Articles </h2>
+      <hr>
+      <%= render 'articles/article', obj: @user.articles %>
+    </div>
+  </div>
+</section>

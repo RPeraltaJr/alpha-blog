@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def show 
+    @user = User.find(params[:id]) # find user based on id
+  end
+  
   private 
     def user_params # able to create new user with username, email, password
       params.require(:user).permit(:username, :email, :password)
