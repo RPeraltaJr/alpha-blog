@@ -86,6 +86,7 @@ textarea,
   border-radius: 0;
   margin-bottom: 0;
   border: none;
+  z-index: 10;
   .container-fluid {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -126,8 +127,9 @@ textarea,
 section.home {
   display: flex;
   position: absolute;
-  margin-top: -5px;
-  height: 90%;
+  z-index: 1;
+  margin-top: -55px;
+  height: 95%;
   width: 100%;
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
     asset-url('work-station.jpg');
@@ -255,6 +257,7 @@ section.articles {
 
 .footer {
   position: absolute;
+  z-index: 10;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
