@@ -18,8 +18,14 @@
 			</div>
     </div>
     <div class="col-md-9">
+      
       <!-- If user has any articles, then render '_article.html.erb', otherwise render '_noarticle.html.erb' -->
-      <%= render(@user.articles.any? ? 'articles/article' : 'articles/noarticle' , obj: @user.articles) %>
+      <%= render(@user.articles.any? ? 'articles/article' : 'articles/noarticle' , obj: @user_articles) %>
+      
+      <div class="paginate">
+        <%= will_paginate @user_articles %> <!-- created within show method [users_controller.rb] -->
+      </div>
+      
     </div>
   </div>
 </section>

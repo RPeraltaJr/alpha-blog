@@ -5,7 +5,17 @@
     <div>
     
     <div class="col-md-10 col-md-offset-1">
-      <%= render 'article', obj: @articles %>
+      
+      <div class="paginate">
+        <center><%= will_paginate %></center> <!-- Display pagination -->
+      </div>
+      
+      <%= render 'article', obj: @articles %> <!-- Render Articles list -->
+      
+      <div class="paginate">
+        <center><%= will_paginate %></center>
+      </div>
+      
     </div>
           
   </div> <!-- /.container -->

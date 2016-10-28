@@ -382,6 +382,29 @@ section.users {
 }
 
 // -------------------------------------
+// Pagination
+// -------------------------------------
+
+.paginate {
+  li {
+    &.active,
+    &.active > a {
+      color: white !important;
+      background: $primary;
+      border-color: $primary;
+    }
+    &.active > a:hover,
+    &.active > a:target,
+    &.active > a:active,
+    &.active > a:focus {
+      background: $primary-dark;
+      border-color: $primary-dark;
+    }
+  }
+}
+
+
+// -------------------------------------
 // Footer
 // -------------------------------------
 
