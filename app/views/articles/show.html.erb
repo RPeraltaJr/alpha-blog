@@ -5,7 +5,12 @@
     <div>
     
     <div class="col-md-10 col-md-offset-1">
-      <h2> <%= @article.title %> </h2>
+      <h2> <%= @article.title %> 
+        <% if @article.user %> <!-- if '@article.user' exists -->
+          <small>by <%= link_to @article.user.username, user_path(@article.user) %></small>
+        <% end %>
+      </h2>
+      
       <!-- simple_format() method will display returns/breaks in the same way that was edited -->
       <%= simple_format(@article.description) %>
       <div class="more-info">
