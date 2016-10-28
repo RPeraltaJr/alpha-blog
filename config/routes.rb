@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   
   resources :articles # a new article path, path to CRUD. Test with `rake routes`
+  
+  get 'signup', to: 'users#new'
+  post 'users', to: 'users#create' # OR resources :users, except:[:new]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
