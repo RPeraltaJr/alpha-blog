@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :articles # a new article path, path to CRUD. Test with `rake routes`
   
   get 'signup', to: 'users#new'
-  post 'users', to: 'users#create' # OR resources :users, except:[:new]
+  # post 'users', to: 'users#create' 
+  resources :users, except:[:new] # all the routes except 'users#new' b/c it's already created
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
