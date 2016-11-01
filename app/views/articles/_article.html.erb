@@ -8,10 +8,13 @@
       <span class="badge">Created by: <%= article.user.username.capitalize if article.user %> <%= time_ago_in_words(article.created_at) %> ago</span>
       <span class="badge">Last updated: <%= time_ago_in_words(article.updated_at) %> ago</span>
       
-      <div class="pull-right article-actions">
-        <%= link_to "Edit", edit_article_path(article), class: "btn btn-xs btn-info" %>
-        <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
-      </div>         
+      <% if logged_in? && current_user == article.user %>
+        <div class="pull-right article-actions">
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn-xs btn-info" %>
+          <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
+        </div>  
+      <% end %>
+      
     </div>
     <hr>
   

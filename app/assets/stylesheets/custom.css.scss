@@ -271,6 +271,8 @@ section.users {
   width: 100%;
   .container-fluid {
     .alert {
+      position: relative;
+      bottom: 20px;
       margin: 40px 0 20px;
     }
   }  
