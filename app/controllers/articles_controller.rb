@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   
   def create
     @article = Article.new(article_params) # pass in a variable
-    @article.user = User.first
+    @article.user = current_user # There will be a current_user variable assigned (from Application Controller) already once they get to Create Article page
     if @article.save
       flash[:success] = "Article was successfully created" # Flash message
       redirect_to article_path(@article) # according to `rake routes` which says the Prefix is 'article'
