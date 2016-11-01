@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :articles # since user is the One side, in the One to Many Associations
+  has_many :articles, dependent: :destroy # since user is the One side, in the One to Many Associations. 'Dependent' will destory any related articles if User is destroyed
   before_save { self.email = email.downcase }
   before_save { self.username = username.capitalize}
   
