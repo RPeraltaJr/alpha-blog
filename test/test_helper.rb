@@ -7,4 +7,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def sign_in_as(user, password) # simulate a sign in
+    post login_path, session: {email: user.email, password: password} # posting to login page and submitting user credentials
+  end
 end
