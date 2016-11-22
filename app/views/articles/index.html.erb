@@ -8,6 +8,11 @@
         <center><%= will_paginate %></center> <!-- Display pagination -->
       </div>
       
+      <!-- Message: No Articles Found -->
+      <% if @articles.blank? %>
+        <h4>There are no articles containing the term <%= params[:search] %>.</h4>
+      <% end %>
+      
       <%= render 'article', obj: @articles %> <!-- Render Articles list -->
       
       <div class="paginate">

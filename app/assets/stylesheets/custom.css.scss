@@ -160,109 +160,9 @@ section.home {
 }
 
 // -------------------------------------
-// Section
+// General
 // -------------------------------------
 
-section.articles,
-section.users {
-  &.list, 
-  &.profile,
-  &.articles { // List
-    h2 > a {
-      color: $navbar-default-bg;
-    }
-    h2 > a:hover,
-    h2 > a:focus,
-    h2 > a:active,
-    h2 > a:target {
-      color: $primary;
-    }
-    .badge {
-      background: $grey;
-      font-weight: 500;
-      &.primary {
-        background: $navbar-default-bg;
-        transition: all 300ms ease;
-        &:hover {
-          background: $primary;
-        }
-      }
-      a {
-        color: white !important;
-      }
-    }
-  }
-  &.show { // Show
-    h2 {
-      color: $navbar-default-bg;
-    }
-    .more-info {
-      margin-top: 20px;
-      .badge {
-        background: $grey;
-        font-weight: 500;
-      }
-    }
-  }
-  .container {
-    padding: 50px 40px;
-    h1.title {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 1.5em;
-      text-transform: uppercase;
-      color: #aaa;
-      font-weight: bold;
-      letter-spacing: 3px;
-    }
-    a {
-      color: $grey;
-      text-decoration: none;
-      &:hover,
-      &:focus,
-      &:active,
-      &:target {
-        color: $primary;
-      }
-    }
-    .article-actions {
-      a,
-      a:hover,
-      a:target,
-      a:active,
-      a:focus {
-        color: white;
-      }
-    }
-    .user {
-      max-width: 400px;
-      margin: 0 auto;
-      display: flex;
-      padding: 10px 0;
-      border-bottom: solid 1px #eaeaea;
-      .item {
-        display: flex;
-        &.item-1 {
-          flex: 1 20%;
-          img {
-            border-radius: 50%;
-          }
-        }
-        &.item-2 {
-          display: flex;
-          flex: 1 80%;
-          padding: 0 0 0 20px;
-          .content {
-            margin: auto 0;
-            h2, p {
-              margin: 0;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 .article-actions {
   top: -23px;
@@ -270,6 +170,10 @@ section.users {
   .btn {
     min-width: 70px;
   }
+}
+
+.pagination {
+  margin: 0;
 }
 
 // -------------------------------------
@@ -393,28 +297,6 @@ section.users {
         border-left: 2px solid #5b9bd1;
         margin-left: -2px;
       }
-    }
-  }
-}
-
-// -------------------------------------
-// Pagination
-// -------------------------------------
-
-.paginate {
-  li {
-    &.active,
-    &.active > a {
-      color: white !important;
-      background: $primary;
-      border-color: $primary;
-    }
-    &.active > a:hover,
-    &.active > a:target,
-    &.active > a:active,
-    &.active > a:focus {
-      background: $primary-dark;
-      border-color: $primary-dark;
     }
   }
 }
@@ -572,6 +454,7 @@ section.users {
 //     animation-duration: 0.7s;
 // }
 
+.blog-wrapper,
 .blog-wrapper .overlay .content {
     padding: 0 20px;
     h3 {
@@ -611,6 +494,27 @@ section.users {
         font-size: 12px;
         color: #aaa;
         margin: 0;
+      }
+    }
+    .categories {
+      width: 100%;
+      display: inline-block;
+      .category {
+        .box {
+          margin: auto;
+          background: white;
+          width: 100%;
+          padding: 20px 15px;
+          border-bottom: solid 4px $primary;
+          margin-bottom: 25px;
+          h3,
+          p {
+            margin: 0;
+          }
+          h3 {
+            margin-bottom: 5px;
+          }
+        }
       }
     }
 }

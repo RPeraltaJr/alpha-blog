@@ -8,7 +8,8 @@ class ArticlesController < ApplicationController
     # @articles = Article.all # get all articles from the database
     # @articles = Article.paginate(page: params[:page], per_page: 5)
     # @articles = @articles.paginate(page: params[:page], per_page: 5)
-    if params[:search]
+    
+    if params[:search] # For more information visit http://www.rymcmahon.com/articles/2
       @articles = Article.search(params[:search]).paginate(page: params[:page], per_page: 12)
     else
       @articles = Article.paginate(page: params[:page], per_page: 12)

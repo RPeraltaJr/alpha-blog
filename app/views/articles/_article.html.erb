@@ -1,9 +1,5 @@
 <% obj.each do |article| %>
 
-    <% if article.blank? %>
-      <h4>There are no articles containing the term <%= params[:search] %>.</h4>
-    <% else %>
-
     <div class="col-page col-sm-4 col-md-3">
       <div class="overlay">
         <div class="content">
@@ -37,7 +33,5 @@
       <% end %>
       
     </div> <!-- /.col-page -->
-    
-    <% end %>
   
 <% end %>

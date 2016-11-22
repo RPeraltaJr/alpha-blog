@@ -1,23 +1,31 @@
-<section class="show articles">
+<section class="blog-wrapper">
   <div class="container">
+    <h2>Blog <b>Posts</b></h2>
     
-    <div class="col-md-12">
-      <h1 class="title text-primary">Listing All Categories</h1>
-    </div>
-    
-    <div class="col-md-12 text-center">
+    <div class="row-page row">
       
-      <%= will_paginate %>
+      <div class="page-nav col-md-12">
+        <center><%= will_paginate %></center>
+      </div>
       
-      <% @categories.each do |category| %>
+      <div class="categories">
       
-        <h2> <%= link_to "#{category.name}", category_path(category) %> </h2>
-        <p><%= pluralize(category.articles.count, "article") %></p>
-        <br></hr>
+        <% @categories.each do |category| %>
+          
+          <div class="col-md-3 category">
+            <div class="box text-center">
+              <h3> <%= link_to "#{category.name}", category_path(category) %> </h3>
+              <p><%= pluralize(category.articles.count, "article") %></p>
+            </div>
+          </div>
+        
+        <% end %>
       
-      <% end %>
+      </div>
       
-      <%= will_paginate %>
+      <div class="page-nav col-md-12">
+        <center><%= will_paginate %></center>
+      </div>
       
     </div>
 

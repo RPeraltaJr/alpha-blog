@@ -62,17 +62,12 @@
         
       </ul>
       
-      <!--<form class="navbar-form navbar-left">-->
-      <!--  <div class="form-group">-->
-      <!--    <input type="text" class="form-control" placeholder="Search">-->
-      <!--  </div>-->
-      <!--  <button type="submit" class="btn btn-primary">Submit</button>-->
-      <!--</form>-->
-      
-      <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
-        <%= submit_tag "Search", :name => nil %>
-    <% end %>
+      <%= form_tag(articles_path, :method => "get", id: "search-form", :class => "navbar-form navbar-left") do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", class: "form-control" %>
+        </div>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+      <% end %>
       
       <ul class="nav navbar-nav navbar-right">
         

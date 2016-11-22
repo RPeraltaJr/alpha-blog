@@ -7,9 +7,11 @@ class Article < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 10, maximum: 1000 }
   validates :user_id, presence: true # ensures it has user id
   
+  # For more information visit http://www.rymcmahon.com/articles/2
   def self.search(search)
     if search
       losearch = search.downcase
+      # The LIKE syntax is used for MySQL, but if you are deploying to Heroku or another platform that uses PostgreSQL use the ILIKE syntax instead.
       where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%") 
     end
   end
