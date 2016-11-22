@@ -4,7 +4,14 @@
     <!-- @category & @category_articles will both have to be defined after creating this template -->
     
     <div class="col-md-12">
-      <h1 class="title text-primary"><%= "Category: " + @category.name %></h1>
+      <h1 class="title text-primary">
+        <%= "Category: " + @category.name %>
+      </h1>
+      <!-- if logged in and user is Admin -->
+      <% if logged_in? and current_user.admin? %>
+        <p class="text-center" style="margin-top: -20px;">[<%= link_to "Edit Category Name", edit_category_path(@category) %>]</p>
+        <br>
+      <% end %>
     </div>
     
     <div class="col-md-10 col-md-offset-1">
