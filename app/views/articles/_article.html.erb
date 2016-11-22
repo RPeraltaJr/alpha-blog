@@ -1,26 +1,43 @@
 <% obj.each do |article| %>
-  
-    <h2> <%= link_to article.title, article_path(article) %> </h2> <!-- Title becomes a link -->
-    <p> <%= truncate(article.description, length: 100) %> </p> <!-- truncate method will shorten the description length -->
-    
-    <div>
-      <!-- Display if article has category(ies) -->
-      <% if article.categories.any? %>
-        <p>Categories: <%= render article.categories %></p>
-      <% end %>
-      
-      <!-- time_ago_in_words() method will return time in a user friendly format -->
-      <span class="badge">Created by: <%= article.user.username.capitalize if article.user %> <%= time_ago_in_words(article.created_at) %> ago</span>
-      <span class="badge">Last updated: <%= time_ago_in_words(article.updated_at) %> ago</span>
+
+    <% if article.blank? %>
+      <h4>There are no articles containing the term <%= params[:search] %>.</h4>
+    <% else %>
+
+    <div class="col-page col-sm-4 col-md-3">
+      <div class="overlay">
+        <div class="content">
+          
+          <h3><%= link_to article.title, article_path(article) %></h3>
+          <p><%= truncate(article.description, length: 95) %></p>
+          
+          <!-- Display if article has category(ies) -->
+          <% if article.categories.any? %>
+            <p><%= render article.categories %></p>
+          <% end %>
+          
+          <div class="info">
+            <!-- time_ago_in_words() method will return time in a user friendly format -->
+            <p>Posted by <b><%= article.user.username.capitalize if article.user %></b> <%= time_ago_in_words(article.created_at) %> ago.</p>
+            <p>Updated <%= time_ago_in_words(article.updated_at) %> ago.</p>
+          </div>
+          
+        </div>
+        
+        <!--<div class="link">-->
+        <!--  <span>Read More </span>-->
+        <!--</div>-->
+      </div>
       
       <% if logged_in? && (current_user == article.user || current_user.admin?) %>
-        <div class="pull-right article-actions">
-          <%= link_to "Edit", edit_article_path(article), class: "btn btn-xs btn-info" %>
-          <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
+        <div class="article-actions btn-group btn-group-justified">
+          <%= link_to "Edit", edit_article_path(article), class: "btn btn-md btn-info" %>
+          <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-md btn-danger" %>
         </div>  
       <% end %>
       
-    </div>
-    <hr>
+    </div> <!-- /.col-page -->
+    
+    <% end %>
   
 <% end %>

@@ -7,4 +7,11 @@ class Article < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 10, maximum: 1000 }
   validates :user_id, presence: true # ensures it has user id
   
+  def self.search(search)
+    if search
+      losearch = search.downcase
+      where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%") 
+    end
+  end
+  
 end

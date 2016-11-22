@@ -6,7 +6,13 @@ class ArticlesController < ApplicationController
   
   def index
     # @articles = Article.all # get all articles from the database
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    # @articles = Article.paginate(page: params[:page], per_page: 5)
+    # @articles = @articles.paginate(page: params[:page], per_page: 5)
+    if params[:search]
+      @articles = Article.search(params[:search]).paginate(page: params[:page], per_page: 12)
+    else
+      @articles = Article.paginate(page: params[:page], per_page: 12)
+    end
   end
   
   def new

@@ -11,6 +11,8 @@ $grey: #888;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,900');
+
 // -------------------------------------
 // General
 // -------------------------------------
@@ -200,11 +202,6 @@ section.users {
         background: $grey;
         font-weight: 500;
       }
-      .article-actions {
-        .btn {
-          width: 100px;
-        }
-      }
     }
   }
   .container {
@@ -268,6 +265,8 @@ section.users {
 }
 
 .article-actions {
+  top: -23px;
+  padding-bottom: 20px;
   .btn {
     min-width: 70px;
   }
@@ -451,3 +450,212 @@ section.users {
     }
   }
 }
+
+@-webkit-keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bounceInLeft {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-3000px, 0, 0);
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(25px, 0, 0);
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(5px, 0, 0);
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+}
+
+// -------------------------------------
+// Blog Listing
+// -------------------------------------
+
+.blog-wrapper {
+    padding-bottom: 50px;
+	  background: url("") no-repeat fixed center center;
+    background-size: 100% auto;
+	  background-color: #f1f1f1;
+}
+.blog-wrapper h2 {
+	  text-align: center;
+    font-weight: 300;
+    margin-bottom: 50px;
+    font-size: 44px;
+    margin-top: 70px;
+}
+.blog-wrapper h2 b {
+	  color: $primary;
+}
+.blog-wrapper .overlay {
+	  background: #ffffff;
+    // border-radius: 3px;
+    border-bottom: solid 4px $primary;
+    overflow: hidden;
+    min-height: 300px;
+    width: 100%;
+    margin-bottom: 30px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+}
+.blog-wrapper .overlay .link {
+    position: absolute;
+}
+// .blog-wrapper .overlay:hover .link {
+//     height: 300px;
+//     width: 100%;
+//     color: #aaa;
+//     background-color: $primary;
+//     // position: absolute;
+//     opacity: 0.95;
+//     animation-name: bounceInLeft;
+//     animation-duration: 0.7s;
+// }
+
+.blog-wrapper .overlay .content {
+    padding: 0 20px;
+    h3 {
+      a {
+        color: $navbar-default-bg;
+        text-decoration: none !important;
+        transition: all 300ms ease;
+        &:hover {
+          color: $primary;
+        }
+      }
+      color: $navbar-default-bg;
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    .badge {
+      &.primary {
+        background: $primary;
+        transition: all 300ms ease;
+        a {
+          color: white;
+          text-decoration: none !important;
+        }
+        &:hover,
+        &:active,
+        &:target {
+          background: $primary-dark;
+        }
+      }
+    }
+    .info {
+      position: absolute;
+      bottom: 15px;
+      p {
+        font-weight: 400;
+        font-size: 12px;
+        color: #aaa;
+        margin: 0;
+      }
+    }
+}
+
+.link {
+    display: flex;
+    height: 300px;
+    width: 0%;
+    color: #aaa;
+    background-color: #2BBCDE;
+    position: absolute;
+    top: 0;
+    opacity: 0.0;
+    text-align: center;
+}
+.link span {
+    margin: auto;
+    text-align: center;
+    border: 1px solid #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .blog-wrapper h2 {
+        text-align: center;
+        font-weight: 300;
+        margin-bottom: 30px;
+        font-size: 34px;
+        margin-top: 70px;
+    }
+    .blog-wrapper .overlay {
+        background: #ffffff;
+        border-radius: 3px;
+        overflow: hidden;
+        height: inherit;
+        margin-bottom: 20px;
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        position: relative;
+    }
+}
+

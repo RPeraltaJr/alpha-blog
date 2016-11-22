@@ -61,12 +61,19 @@
         <% end %>
         
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      
+      <!--<form class="navbar-form navbar-left">-->
+      <!--  <div class="form-group">-->
+      <!--    <input type="text" class="form-control" placeholder="Search">-->
+      <!--  </div>-->
+      <!--  <button type="submit" class="btn btn-primary">Submit</button>-->
+      <!--</form>-->
+      
+      <%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+        <%= submit_tag "Search", :name => nil %>
+    <% end %>
+      
       <ul class="nav navbar-nav navbar-right">
         
         <!-- For logged in User -->
