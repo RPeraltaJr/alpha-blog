@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
     def article_params
-      params.require(:article).permit(:title, :description)  # permit the values of title and description
+      params.require(:article).permit(:title, :description, category_ids: [])  # permit the values of title and description. category_ids is in array format to pick up multiple values
     end
     def require_same_user
       if current_user != @article.user and !current_user.admin?

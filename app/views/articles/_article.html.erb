@@ -4,6 +4,11 @@
     <p> <%= truncate(article.description, length: 100) %> </p> <!-- truncate method will shorten the description length -->
     
     <div>
+      <!-- Display if article has category(ies) -->
+      <% if article.categories.any? %>
+        <p>Categories: <%= render article.categories %></p>
+      <% end %>
+      
       <!-- time_ago_in_words() method will return time in a user friendly format -->
       <span class="badge">Created by: <%= article.user.username.capitalize if article.user %> <%= time_ago_in_words(article.created_at) %> ago</span>
       <span class="badge">Last updated: <%= time_ago_in_words(article.updated_at) %> ago</span>

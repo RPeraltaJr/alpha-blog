@@ -20,7 +20,8 @@ class CategoriesController < ApplicationController
   end
   
   def show
-    
+    @category = Category.find(params[:id])  # find Category by param id
+    @category_articles = @category.articles.paginate(page: params[:page], per_page: 5) # Category with its associated Articles, with pagination syntax
   end
   
   private

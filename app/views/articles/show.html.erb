@@ -13,6 +13,12 @@
       
       <!-- simple_format() method will display returns/breaks in the same way that was edited -->
       <%= simple_format(@article.description) %>
+      
+      <!-- Display if article has category(ies) -->
+      <% if @article.categories.any? %>
+        <p>Categories: <%= render @article.categories %></p>
+      <% end %>
+      
       <div class="more-info">
         <span class="badge">Posted on <%= @article.created_at.strftime("%m/%d/%Y") %></span>
         <span class="badge">Updated on <%= @article.updated_at.strftime("%m/%d/%Y") %></span>

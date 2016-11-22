@@ -163,7 +163,9 @@ section.home {
 
 section.articles,
 section.users {
-  &.list, &.profile { // List
+  &.list, 
+  &.profile,
+  &.articles { // List
     h2 > a {
       color: $navbar-default-bg;
     }
@@ -176,6 +178,16 @@ section.users {
     .badge {
       background: $grey;
       font-weight: 500;
+      &.primary {
+        background: $navbar-default-bg;
+        transition: all 300ms ease;
+        &:hover {
+          background: $primary;
+        }
+      }
+      a {
+        color: white !important;
+      }
     }
   }
   &.show { // Show
