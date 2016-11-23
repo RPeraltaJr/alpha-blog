@@ -1,6 +1,6 @@
 <% obj.each do |article| %>
 
-    <div class="col-page col-sm-4 col-md-3">
+    <div class="col-page col-md-3 col-sm-4">
       <div class="overlay">
         <div class="content">
           
@@ -28,7 +28,7 @@
       <% if logged_in? && (current_user == article.user || current_user.admin?) %>
         <div class="article-actions btn-group btn-group-justified">
           <%= link_to "Edit", edit_article_path(article), class: "btn btn-md btn-info" %>
-          <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-md btn-danger" %>
+          <%= link_to "Delete",article_path(article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-md btn-primary" %>
         </div>  
       <% end %>
       

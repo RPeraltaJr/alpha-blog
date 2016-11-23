@@ -1,46 +1,47 @@
-<section class="list users">
+<section class="blog-wrapper">
   <div class="container">
-    <div class="col-md-12">
-      <h1 class="title text-primary">All Alpha Bloggers</h1>
-    <div>
+    <h2>Alpha <b>Bloggers</b></h2>
+    
+    <div class="row-page row">
       
-    <div class="col-md-12">
-      <div class="paginate">
+      <div class="paginate top">
         <center><%= will_paginate %></center> <!-- Display pagination -->
       </div>
-    </div>
       
-    <% @users.each do |user| %>
-    
-      <div class="col-md-12">
-        <div class="user">
-          <div class="item item-1">
-            <%= link_to gravatar_for(user), user_path(user) %>
-          </div>
-          <div class="item item-2">
-            <div class="content">
-              <h2> <%= link_to user.username, user_path(user) %> </h2> <!-- link for user's username -->
-              <p> <%= pluralize(user.articles.count, "article") %> </p>
-              
-              <!-- Admin tool -->
-              <% if logged_in? and current_user.admin? %>
-                <p><%= link_to "Delete this user", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this user and all their articles?" } %></p>
-              <% end %>
-              
+      <div class="users">
+      
+        <% @users.each do |user| %>
+        
+          <div class="col-md-3 user">
+            <div class="box text-center">
+              <div class="col-md-5 left">
+                <center><%= link_to gravatar_for(user), user_path(user) %></center>
+              </div>
+              <div class="col-md-7 right">
+                <div class="content text-left">
+                  <h3> <%= link_to user.username, user_path(user) %> </h3>
+                  <p><%= pluralize(user.articles.count, "article") %></p>
+                </div>
+              </div>
             </div>
+            
+            <div class="article-actions btn-group btn-group-justified users">
+              <% if logged_in? and current_user.admin? %>
+                <%= link_to "Delete this user", user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this user and all their articles?" },class: "btn btn-md btn-primary" %>
+              <% end %>
+            </div> 
+            
           </div>
-          <hr>
-        </div> <!-- /.user -->
-      </div> <!-- /.col-md-12 -->
-
-    <% end %>
     
-    <div class="col-md-12">
-      <div class="paginate">
+        <% end %>
+    
+      </div>
+      
+      <div class="paginate bottom">
         <center><%= will_paginate %></center> <!-- Display pagination -->
       </div>
+      
     </div>
-    
-          
+
   </div> <!-- /.container -->
 </section>

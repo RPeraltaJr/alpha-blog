@@ -1,40 +1,38 @@
-<section class="signup users">
+<section class="blog-wrapper">
   <div class="container">
-    <div class="col-md-12">
-      
-      <h1 class="title">Login</h1>
+    <h2>Login to <b>Alpha Blog</b></h2>
 
-      <!-- Sessions are not modeled back and will need to specify the route -->
-      <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+      <div class="form-wrapper">
+        
+        <!-- Sessions are not modeled back and will need to specify the route -->
+        <%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+        
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autocomplete: "off" %>
+          </div>
+        </div>
+        </br>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.submit "Log in", class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+        </div>
+        <% end %>
       
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :email %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="control-label col-sm-2">
-          <%= f.label :password %>
-        </div>
-        <div class="col-sm-8">
-          <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autocomplete: "off" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-8 col-sm-offset-2">
-          <%= f.submit "Log in", class: "btn btn-primary btn-lg" %>
-        </div>
-      </div>
-      <% end %>
-      
+    </div> <!-- /.form-wrapper -->
+    
+    <div class="col-sm-12 text-center">
+      <span class="cancel-link">[ <%= link_to "Cancel request and return to articles listing", articles_path %> ]</span>
     </div>
     
-    <div class="col-sm-4 col-sm-offset-7">
-      [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
-    </div>
-
-  </div>
-</section>
+  </div> <!-- /.container -->
+</section> <!-- /.blog-wrapper -->
+  

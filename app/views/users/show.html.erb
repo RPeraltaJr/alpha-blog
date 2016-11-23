@@ -1,32 +1,32 @@
-<section class="profile users">
+<section class="blog-wrapper">
   <div class="container">
     
-    <div class="col-md-12">
-      <h1 class="title"> Welcome to <%= @user.username %>'s Page </h1>
-    </div>
-    
-    <div class="col-md-3">
-      <div class="profile-sidebar">
-				<div class="profile-userpic">
-				  <%= gravatar_for @user %> <!-- Gravatar -->
-				</div> <!-- /.profile-userpic -->
-				<div class="profile-usertitle">
-					<div class="profile-usertitle-name">
-						<%= @user.username %>
-					</div>
-					<a href="mailto:<%= @user.email %>"> <%= @user.email %> </a>
-				</div> <!-- /.profile-usertitle -->
-			</div> <!-- /.profile-sidebar -->
-    </div>
-    
-    <div class="col-md-9">
-      <!-- If user has any articles, then render '_article.html.erb', otherwise render '_noarticle.html.erb' -->
-      <%= render(@user.articles.any? ? 'articles/article' : 'articles/noarticle' , obj: @user_articles) %>
+    <div class="row-page row">
       
-      <div class="paginate">
-        <%= will_paginate @user_articles %> <!-- created within show method [users_controller.rb] -->
-      </div> <!-- /.paginate -->
-    </div>
+      <div class="user-profile">
     
-  </div>
+        <div class="col-md-12">
+          <div class="col-md-12">
+           <div class="profile-box">
+      				<center><%= gravatar_for @user %></center> <!-- Gravatar -->
+      				<h2><%= @user.username %>'s <b>Profile</b></h2>
+    					<a href="mailto:<%= @user.email %>"> <%= @user.email %> </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-12">
+          <!-- If user has any articles, then render '_article.html.erb', otherwise render '_noarticle.html.erb' -->
+          <%= render(@user.articles.any? ? 'articles/article' : 'articles/noarticle' , obj: @user_articles) %>
+          
+          <div class="paginate">
+            <%= will_paginate @user_articles %> <!-- created within show method [users_controller.rb] -->
+          </div> <!-- /.paginate -->
+        </div>
+    
+      </div> <!-- /.user-profile -->
+        
+    </div> <!-- /.row-page -->
+
+  </div> <!-- /.container -->
 </section>

@@ -1,10 +1,10 @@
 <section class="blog-wrapper">
   <div class="container">
-    <h2>Blog <b>Posts</b></h2>
+    <h2>Blog <b>Articles</b></h2>
     
     <div class="row-page row">
       
-      <div class="paginate">
+      <div class="paginate top">
         <center><%= will_paginate %></center> <!-- Display pagination -->
       </div>
       
@@ -15,7 +15,7 @@
       
       <%= render 'article', obj: @articles %> <!-- Render Articles list -->
       
-      <div class="paginate">
+      <div class="paginate bottom">
         <center><%= will_paginate %></center>
       </div>
       

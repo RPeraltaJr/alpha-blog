@@ -1,42 +1,55 @@
-<section class="show articles">
+<section class="blog-wrapper">
   <div class="container">
-    <div class="col-md-12">
-      <h1 class="title text-primary">View Article</h1>
-    <div>
+    <h2>View <b>Article</b></h2>
     
-    <div class="col-md-10 col-md-offset-1">
-      <h2> <%= @article.title %> 
-        <% if @article.user %> <!-- if '@article.user' exists -->
-          <small>by <%= link_to @article.user.username, user_path(@article.user) %></small>
-        <% end %>
-      </h2>
+    <div class="row-page row">
       
-      <!-- simple_format() method will display returns/breaks in the same way that was edited -->
-      <%= simple_format(@article.description) %>
-      
-      <!-- Display if article has category(ies) -->
-      <% if @article.categories.any? %>
-        <p>Categories: <%= render @article.categories %></p>
-      <% end %>
-      
-      <div class="more-info">
-        <span class="badge">Posted on <%= @article.created_at.strftime("%m/%d/%Y") %></span>
-        <span class="badge">Updated on <%= @article.updated_at.strftime("%m/%d/%Y") %></span>
+      <div class="view-article">
         
-        
-        <div class="pull-right article-actions">
+        <div class="col-md-10 col-md-offset-1">
+    
+          <div class="wrapper">
+            
+            <h3> <%= @article.title %> 
+              <% if @article.user %> <!-- if '@article.user' exists -->
+                <br><span class="by">by <%= link_to @article.user.username, user_path(@article.user) %></span>
+              <% end %>
+            </h3>
+            
+            <div class="description">
+              <!-- simple_format() method will display returns/breaks in the same way that was edited -->
+              <%= simple_format(@article.description) %>
+            </div>
+            
+            <div class="categories">
+              <!-- Display if article has category(ies) -->
+              <% if @article.categories.any? %>
+                <p><%= render @article.categories %></p>
+              <% end %>
+            </div>
           
-          <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
-            <%= link_to "Edit", edit_article_path(@article), class: "btn btn-xs btn-info" %>
-            <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-xs btn-danger" %>
-          <% end %>
+            <div class="info">
+              <p>
+                Posted on <b><%= @article.created_at.strftime("%m/%d/%Y") %></b>.
+                Updated on <b><%= @article.updated_at.strftime("%m/%d/%Y") %></b>.
+              </p>
+            </div>
+            
+          </div> <!-- /.wrapper -->
           
-          <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success" %>
-        </div>     
+          <div class="article-action btn-group btn-group-justified">
+            <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
+              <%= link_to "Edit", edit_article_path(@article), class: "btn btn-lg btn-info" %>
+              <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure you want to delete the article?" }, class: "btn btn-lg btn-primary" %>
+            <% end %>
+            <%= link_to "View All Articles", articles_path, class: "btn btn-lg btn-success" %>
+          </div> 
         
-      </div>
-      <hr>
-    </div>
-      
+        </div> <!-- /.col-md-10 -->
+        
+      </div> <!-- /.view-article -->
+        
+    </div> <!-- /.row-page -->
+
   </div> <!-- /.container -->
 </section>

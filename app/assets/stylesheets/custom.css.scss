@@ -3,8 +3,11 @@
 // -------------------------------------
 
 $navbar-default-bg: #2C3136;
+$navbar-default-bg-dark: #121416;
 $primary: #ED4545; // red
 $primary-dark: #cc3d3d; // red dark
+$info: #ff9393;
+$info-dark: #e58585;
 $grey: #888;
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
@@ -74,6 +77,36 @@ textarea,
   }
 }
 
+.btn-success {
+  background: $navbar-default-bg;
+  border-color: $navbar-default-bg;
+  color: white;
+  &:hover,
+  &:active,
+  &:target,
+  &:focus {
+    background: $navbar-default-bg-dark;
+    border-color: $navbar-default-bg-dark;
+    color: white;
+  }
+}
+
+.btn-info {
+  background: $info;
+  border-color: $info;
+  color: white;
+  &:hover,
+  &:active,
+  &:target,
+  &:focus {
+    background: $info-dark;
+    border-color: $info-dark;
+    color: white;
+  }
+}
+
+
+
 // -------------------------------------
 // Container
 // -------------------------------------
@@ -102,15 +135,16 @@ textarea,
     padding-bottom: 5px;
     .navbar-header { // Navbar Header
       #logo {
-        b {
-          font-weight: 700;
-          color: white;
-        }
         float: left;
+        font-family: 'Roboto', sans-serif;
         font-size: 1.5em;
         font-weight: 300;
         text-transform: uppercase;
         color: $primary;
+        b {
+          font-weight: 900;
+          color: white;
+        }
       }
     }
     .navbar-collapse { // Navbar Collapse
@@ -167,13 +201,67 @@ section.home {
 .article-actions {
   top: -23px;
   padding-bottom: 20px;
+  &.users {
+    top: -18px;
+  }
   .btn {
     min-width: 70px;
   }
 }
 
 .pagination {
-  margin: 0;
+  margin: 0; // override default bootstrap style
+  border-radius: 0;
+  li {
+    border-radius: 0;
+    a {
+      padding: 8px 12px;
+      color: $navbar-default-bg;
+      border: none;
+      &:hover,
+      &:target,
+      &:focus,
+      &:active {
+        color: $primary;
+      }
+    }
+  }
+  .active {
+    a {
+      background: $primary;
+      border-color: $primary;
+      &:hover,
+      &:target,
+      &:focus,
+      &:active {
+        background: $primary-dark;
+        border-color: $primary-dark;
+      }
+    }
+  }
+}
+
+.pagination > li:first-child > a, 
+.pagination > li:first-child > span {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.pagination > li:last-child > a, 
+.pagination > li:last-child > span {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.paginate {
+  margin-bottom: 30px;
+  &.top {
+    margin-bottom: 30px;
+  }
+  &.bottom {
+    position: relative;
+    top: 5px;
+  }    
 }
 
 // -------------------------------------
@@ -456,7 +544,7 @@ section.home {
 
 .blog-wrapper,
 .blog-wrapper .overlay .content {
-    padding: 0 20px;
+    padding: 0 20px 70px;
     h3 {
       a {
         color: $navbar-default-bg;
@@ -496,15 +584,17 @@ section.home {
         margin: 0;
       }
     }
-    .categories {
+    .categories,
+    .users {
       width: 100%;
       display: inline-block;
-      .category {
+      .category,
+      .user {
         .box {
           margin: auto;
           background: white;
           width: 100%;
-          padding: 20px 15px;
+          padding: 25px 15px;
           border-bottom: solid 4px $primary;
           margin-bottom: 25px;
           h3,
@@ -516,7 +606,110 @@ section.home {
           }
         }
       }
+      .user {
+        .box {
+          display: flex;
+          img {
+            border-radius: 50%;
+          }
+          .right {
+            display: flex;
+            .content {
+              margin: auto auto auto 0;
+            }
+          }
+        }
+      }
     }
+    .view-article {
+      .wrapper {
+        background: white;
+        padding: 60px 70px;
+        min-height: 500px;
+        border-bottom: solid 6px $primary;
+        position: relative;
+        h3 {
+          font-size: 30px;
+          margin: 0 0 30px;
+        }
+        .by {
+          color: $primary;
+          font-weight: 100;
+          a {
+            font-weight: bold;
+            color: $primary;
+            transition: all 300ms ease;
+            &:hover,
+            &:active,
+            &:target,
+            &:focus {
+              color: $primary-dark;
+            }
+          }
+        }
+        .description {
+          margin-bottom: 40px;
+          p {
+            font-size: 18px;
+          }
+        }
+        .badge.primary {
+          padding: 5px 10px;
+          font-size: 18px;
+          font-weight: 400;
+        }
+        .info {
+          position: absolute;
+          bottom: 40px;
+          p {
+            font-weight: 300;
+            font-size: 18px;
+            color: #aaa;
+            margin: 0;
+          }
+        }
+      }
+      .btn-group-justified {
+          margin-top: 15px;
+        }
+    }
+    .user-profile {
+      .profile-box {
+        background: white;
+        padding: 100px 20px;
+        margin: 0 auto 30px;
+        text-align: center;
+        border-bottom: solid 4px $primary;
+        img {
+          border-radius: 50%;
+        }
+        h2 {
+          margin-bottom: 0px;
+          margin-top: 20px;
+        }
+        a {
+          font-size: 18px;
+          color: #808080;
+          font-weight: 300;
+        }
+      }
+    }
+    .form-wrapper {
+      background: white;
+      padding: 60px 40px 40px;
+      max-width: 400px;
+      margin: 0 auto 45px;
+      &.edit {
+        max-width: 700px;
+      }
+    }
+}
+
+.cancel-link {
+  color: black;
+  a {
+    color: $primary;
+  }
 }
 
 .link {

@@ -1,32 +1,25 @@
-<section class="show articles">
+<section class="blog-wrapper">
   <div class="container">
+    <h2>Category <b><%= @category.name %></b></h2>
+    <!-- if logged in and user is Admin -->
+    <% if logged_in? and current_user.admin? %>
+      <p class="text-center" style="margin-top: -20px;">[<%= link_to "Edit Category Name", edit_category_path(@category) %>]</p>
+      <br>
+    <% end %>
     
-    <!-- @category & @category_articles will both have to be defined after creating this template -->
-    
-    <div class="col-md-12">
-      <h1 class="title text-primary">
-        <%= "Category: " + @category.name %>
-      </h1>
-      <!-- if logged in and user is Admin -->
-      <% if logged_in? and current_user.admin? %>
-        <p class="text-center" style="margin-top: -20px;">[<%= link_to "Edit Category Name", edit_category_path(@category) %>]</p>
-        <br>
-      <% end %>
-    </div>
-    
-    <div class="col-md-10 col-md-offset-1">
+    <div class="row-page row">
       
-      <div class="paginate">
-        <center><%= will_paginate @category_articles %></center> <!-- Display pagination -->
+      <div class="page-nav col-md-12">
+        <center><%= will_paginate @category_articles %></center>
       </div>
       
       <%= render 'articles/article', obj: @category_articles %> <!-- Render Articles list from [articles/_article.html.erb] -->
       
-      <div class="paginate">
+      <div class="page-nav col-md-12">
         <center><%= will_paginate @category_articles %></center>
       </div>
       
     </div>
-
-  </div> <!-- /.container -->
+    
+  </div>
 </section>
