@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
     if search
       losearch = search.downcase
       # The LIKE syntax is used for MySQL, but if you are deploying to Heroku or another platform that uses PostgreSQL use the ILIKE syntax instead.
-      where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%") 
+      where("lower(title) ILIKE ? OR lower(description) ILIKE ?", "%#{search.downcase}%", "%#{search.downcase}%") 
     end
   end
   

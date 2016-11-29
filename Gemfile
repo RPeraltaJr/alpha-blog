@@ -59,6 +59,7 @@ end
 
 group :production do
   # Use PostgreSQL
-  gem 'pg'
+  gem 'pg' 
+  # Make your app heroku ready
   gem 'rails_12factor'
 end
